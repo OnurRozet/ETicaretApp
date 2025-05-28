@@ -14,13 +14,13 @@ jobs:
         run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
       - name: Build Docker Backend Image
-        run: docker build -t onurroz/e-ticaret-app-backend ./backend
+        run: docker build -t onurroz/e-ticaret-app:latest ./backend
 
       - name: Push Docker Backend Image
-        run: docker push onurroz/e-ticaret-app
+        run: docker push onurroz/e-ticaret-app:latest
 
       - name: Build Docker Frontend Image
-        run: docker build -t onurroz/e-ticaret-app ./frontend
+        run: docker build -t onurroz/e-ticaret-app:latest ./frontend
 
       - name: Push Docker Frontend Image
-        run: docker push onurroz/e-ticaret-app
+        run: docker push onurroz/e-ticaret-app:latest
