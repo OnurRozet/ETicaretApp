@@ -1,0 +1,39 @@
+
+<div class="d-flex justify-content-center" style="margin-top: 75px;">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Kayıt Ol</h3>
+            </div>
+            <div class="card-body">
+                <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+                    <div class="form-group">
+                        <label for="name">Ad Soyad</label>
+                        <input class="form-control " type="text" [(ngModel)]="model.name" name="name" id="name" #name [appValid]="name.validity.valid" required minlength="3">
+                        <div class="invalid-feedback">
+                            Geçerli bir ad soyad giriniz!
+                        </div>
+                    </div>
+                     <div class="form-group mt-2">
+                        <label for="email">Mail Adresi</label>
+                        <input class="form-control " type="email" [(ngModel)]="model.email" name="email" id="email" #email [appValid]="email.validity.valid" required email>
+                        <div class="invalid-feedback">
+                            Geçerli bir mail adresi giriniz!
+                        </div>
+                    </div>
+                     <div class="form-group mt-2">
+                        <label for="password">Şifre</label>
+                        <input class="form-control" type="password" [(ngModel)]="model.password" name="password" id="password" #password [appValid]="password.validity.valid" required minlength="6">
+                        <div class="invalid-feedback">
+                            Geçerli bir şifre giriniz!
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <button [disabled]="!registerForm.valid" type="submit" class="btn btn-outline-primary w-100 mt-2">Kayıt Ol</button>
+                        <a routerLink="/login" style="float: right;">Hesabınız varsa , Giriş Yap</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
